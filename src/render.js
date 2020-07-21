@@ -1,5 +1,5 @@
-import ReactDOM from 'react-dom';
 import React from 'react';
+import ReactDOMServer from 'react-dom/server';
 
 import App from './App';
 
@@ -11,7 +11,7 @@ const product = {
   'Discount': true
 };
 
-ReactDOM.render(
-  <App product={product} />,
-  document.getElementById('root')
-);
+
+const render = () => ReactDOMServer.renderToString(<App product={product} />);
+
+export default render;

@@ -1,12 +1,12 @@
 import React from 'react';
-import Hello from './Hello';
+
+import ProductCard from './ProductCard';
 
 class App extends React.Component{
   render(){
     return (
       <div>
-        <Hello name='Mama!'/>
-        <Hello name='Natasha!'/>
+        <ProductCard product={this.props.product} />
       </div>
     );
   }
