@@ -3,15 +3,26 @@ import React from 'react';
 
 import App from './App';
 
-const product = {
-  'Title': 'NotebookPro',
-  'Cover': 'https://v2.parceljs.org/assets/parcel.png',
-  'Price': '1000',
-  'Description': 'It better notebook!',
-  'Discount': true
+const author = {
+  'Name': 'Андрей Круз',
+  'Email': 'andrey@kruz.lib',
+  'Avatar': 'https://litres.ru/static/authors/100/00/06/56/00065628_100.jpg',
+  'Info': 'российский писатель, работавший в жанре фантастики'
+};
+const book = {
+  'Title': 'На пороге тьмы',
+  'Description': 'Любая дорога начинается с одного, первого шага. Даже дорога в другую реальность. Иногда этот шаг можно сделать случайно. Всего лишь один шаг, и ты оказываешься на пороге Тьмы, в странном, потерявшемся среди слоев времени мире, среди таких же потерявшихся людей.',
+  'Page': '403',
+  'Language': 'Русский',
+  'Progress': '0',
+  'Cover': 'https://data.fantlab.ru/images/editions/plus/big/45025_3?r=1492539658',
+  'MinPrice': '50',
+  'Price': '100',
+  'Amount collected': '0',
+  'Expected amount': '1000'
 };
 
 ReactDOM.render(
-  <App product={product} />,
+  <App book={book} author={author} />,
   document.getElementById('root')
 );

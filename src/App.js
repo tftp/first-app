@@ -1,12 +1,21 @@
 import React from 'react';
 
-import ProductCard from './ProductCard';
+import BookCard from './BookCard';
+import AuthorCard from './AuthorCard';
 
 class App extends React.Component{
   render(){
     return (
       <div>
-        <ProductCard product={this.props.product} />
+        <div>
+          <AuthorCard author={this.props.author} />
+        </div>
+        <div>
+          <BookCard book={this.props.book} />
+        </div>
+        <div>
+          <button>Подписаться</button>
+        </div>
       </div>
     );
   }
