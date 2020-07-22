@@ -2,6 +2,10 @@ import React from 'react';
 
 class BookCard extends React.Component {
   render(){
+    if(!this.props.book){
+      return <div>Empty book!</div>;
+    };
+    
     const {
       book: { Title, Price, Cover, Description }
     } = this.props;
