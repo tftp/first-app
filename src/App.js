@@ -17,9 +17,6 @@ class App extends React.Component{
           <div>
             <BookCard book={this.props.book} />
           </div>
-          <div>
-            <button>Подписаться</button>
-          </div>
         </main>
         <footer style={style.footer}>
           &copy; {new Date().getFullYear()}, Thinknetica
