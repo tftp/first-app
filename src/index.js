@@ -17,7 +17,8 @@ const book = {
   'MinPrice': '50',
   'Price': '100',
   'Amount collected': '0',
-  'Expected amount': '1000'
+  'Expected amount': '1000',
+  'Subscribers': '6'
 };
 
 ReactDOM.render(

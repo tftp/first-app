@@ -7,7 +7,7 @@ class BookCard extends React.Component {
     };
 
     const {
-      book: { Title, Price, Cover, Description }
+      book: { Title, Price, Cover, Description, Subscribers }
     } = this.props;
     return (
       <div style={styles.container}>
@@ -17,6 +17,10 @@ class BookCard extends React.Component {
         <div style={styles.cardBody}>
           <div style={styles.title}>{Title}</div>
           <div>{Description}</div>
+          <div>Подписчиков: {Subscribers}</div>
+          { Subscribers > 5 &&
+            <div style={styles.bestseller}>Bestseller!</div>
+          }
           <div style={styles.price}>Цена: {Price}</div>
         </div>
       </div>
@@ -52,5 +56,8 @@ const styles = {
     fontWeight: 'bold',
     fontSize: '1.1rem',
     letterSpacing: '.05rem'
+  },
+  bestseller: {
+    color: 'red'
   }
 };
