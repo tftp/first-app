@@ -5,7 +5,7 @@ class BookCard extends React.Component {
     if(!this.props.book){
       return <div>Empty book!</div>;
     };
-    
+
     const {
       book: { Title, Price, Cover, Description }
     } = this.props;
@@ -15,9 +15,9 @@ class BookCard extends React.Component {
           <img style={styles.image} src={Cover} alt={Title} />
         </div>
         <div style={styles.cardBody}>
-          <div>{Title}</div>
+          <div style={styles.title}>{Title}</div>
           <div>{Description}</div>
-          <div>Цена: {Price}</div>
+          <div style={styles.price}>Цена: {Price}</div>
         </div>
       </div>
     )
@@ -43,5 +43,14 @@ const styles = {
     flexDirection: 'column',
     justifyContent: 'space-between',
     padding: '15px 10px'
+  },
+  title: {
+    fontWeight: 'bold',
+    fontSize: '1.1rem'
+  },
+  price: {
+    fontWeight: 'bold',
+    fontSize: '1.1rem',
+    letterSpacing: '.05rem'
   }
 };

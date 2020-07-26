@@ -1,7 +1,7 @@
 import React from 'react';
 
 import BookCard from './BookCard';
-import AuthorCard from './AuthorCard';
+import AuthorsList from './AuthorsList';
 
 class App extends React.Component{
   render(){
@@ -12,7 +12,7 @@ class App extends React.Component{
         </header>
         <main style={style.main}>
           <div>
-            <AuthorCard author={this.props.author} />
+            <AuthorsList authors={this.props.authors} />
           </div>
           <div>
             <BookCard book={this.props.book} />

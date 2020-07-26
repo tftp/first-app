@@ -3,14 +3,10 @@ import React from 'react';
 
 import App from './App';
 
-import './index.css'
+import './index.css';
 
-const author = {
-  'Name': 'Андрей Круз',
-  'Email': 'andrey@kruz.lib',
-  'Avatar': 'https://litres.ru/static/authors/100/00/06/56/00065628_100.jpg',
-  'Info': 'российский писатель, работавший в жанре фантастики'
-};
+import authors from './authors.json';
+
 const book = {
   'Title': 'На пороге тьмы',
   'Description': 'Любая дорога начинается с одного, первого шага. Даже дорога в другую реальность. Иногда этот шаг можно сделать случайно. Всего лишь один шаг, и ты оказываешься на пороге Тьмы, в странном, потерявшемся среди слоев времени мире, среди таких же потерявшихся людей.',
@@ -25,6 +21,6 @@ const book = {
 };
 
 ReactDOM.render(
-  <App book={book} author={author} />,
+  <App book={book} authors={authors} />,
   document.getElementById('root')
 );
