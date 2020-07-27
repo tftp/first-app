@@ -13,22 +13,22 @@ class AuthorsList extends React.Component {
   }
 
   render(){
-    const maxAuthor = this.state.allAuthorsVisible ? this.props.authors.length : 3;
+    const authors = this.props.authors;
+    const maxAuthor = this.state.allAuthorsVisible ? authors.length : 3;
     return (
       <>
       <table><tbody><tr>
-
-          {this.props.authors.slice(0,maxAuthor).map(author => (
+          {authors.slice(0,maxAuthor).map(author => (
             <td key={author.id}>
               <AuthorCard author={author} />
             </td>
           ))}
       </tr></tbody></table>
-      { (this.props.authors.length > 3) &&
+      { (authors.length > 3) &&
         <button
           onClick={() => this.toggleAuthorsVisible()}
         >
-          Показать/Скрыть всех авторов (всего: {this.props.authors.length})
+          Показать/Скрыть всех авторов (всего: {authors.length})
         </button>
       }
       </>
@@ -37,6 +37,3 @@ class AuthorsList extends React.Component {
 }
 
 export default AuthorsList;
-
-const styles = {
-}
