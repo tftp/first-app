@@ -13,7 +13,7 @@ class AuthorsList extends React.Component {
   }
 
   render(){
-    const authors = this.props.authors;
+    const { authors } = this.props;
     const maxAuthor = this.state.allAuthorsVisible ? authors.length : 3;
     return (
       <>
