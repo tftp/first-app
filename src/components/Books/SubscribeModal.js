@@ -5,7 +5,8 @@ import ReactDOM from 'react-dom';
 class SubscribeModal extends React.Component {
   constructor(props){
     super(props);
-    this.state = { isOpen: false }
+    this.state = { isOpen: false };
+    this.toggle = this.toggle.bind(this);
   }
 
   toggle() {
@@ -15,13 +16,13 @@ class SubscribeModal extends React.Component {
   render(){
     return (
       <>
-        <a onClick={() => this.toggle()}>Условия подписки</a>
+        <a onClick={this.toggle}>Условия подписки</a>
         {
           this.state.isOpen && ReactDOM.createPortal(
             <div style={styles.overley}>
               <div style={styles.body}>
                 Чем больше положишь, тем больше получишь.
-                <button onClick={() => this.toggle()}>Закрыть</button>
+                <button onClick={this.toggle}>Закрыть</button>
               </div>
             </div>,
             document.getElementById('modal-root')

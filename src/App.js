@@ -1,23 +1,20 @@
 import React from 'react';
 
-import BookCard from './BookCard';
-import AuthorsList from './AuthorsList';
+import BooksList from './components/Books/BooksList';
+import FeedbackForm from './static/FeedbackForm';
+import Header from './static/Header';
 
 class App extends React.Component{
   render(){
     return (
       <>
-        <header style={style.header}>
-          THIS IS HEADER
-        </header>
+        <Header />
         <main style={style.main}>
-          <div>
-            <AuthorsList authors={this.props.authors} />
-          </div>
-          <div>
-            <BookCard book={this.props.book} />
-          </div>
+          <BooksList {...this.props} />
         </main>
+        <div style={style.feedback}>
+          <FeedbackForm />
+        </div>
         <footer style={style.footer}>
           &copy; {new Date().getFullYear()}, Thinknetica
         </footer>
@@ -37,11 +34,19 @@ const style = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    fontSize: '1.2rem',
-    fontWeight: 'bold',
   },
   main: {
     padding: '10px 10%',
+  },
+  feedback: {
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
+    display: 'flex',
+    justifyContent: 'flex-end',
+    alignItems: 'flex-end',
+    marginRight: '10px',
+    marginBottom: '10px',
   },
   footer: {
     padding: '0 10%',
