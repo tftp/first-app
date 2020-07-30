@@ -25,7 +25,7 @@ class BookCard extends React.Component {
             <div style={styles.price}>Цена: {Price}</div>
           </div>
         </div>
-        { children }
+        { this.props.children }
       </>
     )
   };
