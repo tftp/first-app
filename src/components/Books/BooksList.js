@@ -1,7 +1,7 @@
 import React from 'react';
 
 import BookCard from './BookCard';
-import AuthorsList from './AuthorsList';
+import AuthorsList from '../Authors/AuthorsList';
 import SubscribeModal from './SubscribeModal'
 
 class BooksList extends React.Component{

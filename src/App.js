@@ -1,16 +1,14 @@
 import React from 'react';
 
-import BooksList from './BooksList';
-import FeedbackForm from './FeedbackForm';
-import Header from './Header';
+import BooksList from './components/Books/BooksList';
+import FeedbackForm from './static/FeedbackForm';
+import Header from './static/Header';
 
 class App extends React.Component{
   render(){
     return (
       <>
-        <header style={style.header}>
-          <Header />
-        </header>
+        <Header />
         <main style={style.main}>
           <BooksList {...this.props} />
         </main>

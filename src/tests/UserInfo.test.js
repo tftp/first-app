@@ -1,9 +1,9 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import AuthContext from './AuthContext';
+import AuthContext from '../static/AuthContext';
 
-import UserInfo from './UserInfo';
+import UserInfo from '../static/UserInfo';
 
 test('render User Info', () => {
   const users = [

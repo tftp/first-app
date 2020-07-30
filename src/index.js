@@ -3,13 +3,13 @@ import React from 'react';
 
 import App from './App';
 
-import AuthContext from './AuthContext';
+import AuthContext from './static/AuthContext';
 
 import './index.css';
 
-import authors from './authors.json';
-import books from './books.json';
-import users from './users.json';
+import authors from './data/authors.json';
+import books from './data/books.json';
+import users from './data/users.json';
 
 ReactDOM.render(
   <AuthContext.Provider value={users}>
