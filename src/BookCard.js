@@ -1,7 +1,5 @@
 import React from 'react';
 
-import SubscribeModal from './SubscribeModal'
-
 class BookCard extends React.Component {
   render(){
     if(!this.props.book){
@@ -13,24 +11,21 @@ class BookCard extends React.Component {
     } = this.props;
     return (
       <>
-      <div style={styles.container}>
-        <div style={styles.imageBox}>
-          <img style={styles.image} src={Cover} alt={Title} />
+        <div style={styles.container}>
+          <div style={styles.imageBox}>
+            <img style={styles.image} src={Cover} alt={Title} />
+          </div>
+          <div style={styles.cardBody}>
+            <div style={styles.title}>{Title}</div>
+            <div>{Description}</div>
+            <div>Подписчиков: {Subscribers}</div>
+            { Subscribers > 5 &&
+              <div style={styles.bestseller}>Bestseller!</div>
+            }
+            <div style={styles.price}>Цена: {Price}</div>
+          </div>
         </div>
-        <div style={styles.cardBody}>
-          <div style={styles.title}>{Title}</div>
-          <div>{Description}</div>
-          <div>Подписчиков: {Subscribers}</div>
-          { Subscribers > 5 &&
-            <div style={styles.bestseller}>Bestseller!</div>
-          }
-          <div style={styles.price}>Цена: {Price}</div>
-        </div>
-      </div>
-      <div>
-        <button>Подписаться</button>
-        <SubscribeModal />
-      </div>
+        { children }
       </>
     )
   };

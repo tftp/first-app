@@ -1,7 +1,6 @@
 import React from 'react';
 
-import BookCard from './BookCard';
-import AuthorsList from './AuthorsList';
+import BooksList from './BooksList';
 
 class App extends React.Component{
   render(){
@@ -11,12 +10,7 @@ class App extends React.Component{
           THIS IS HEADER
         </header>
         <main style={style.main}>
-          <div>
-            <AuthorsList authors={this.props.authors} />
-          </div>
-          <div>
-            <BookCard book={this.props.book} />
-          </div>
+          <BooksList {...this.props} />
         </main>
         <footer style={style.footer}>
           &copy; {new Date().getFullYear()}, Thinknetica
