@@ -1,0 +1,8 @@
+[
+  {
+    'email': 'user@mail.com',
+    'firstName': 'UserFirstName',
+    'lastName': 'UserLastName',
+    'avatarUrl': 'https://litres.ru/static/authors/100/00/06/56/00065628_100.jpg' 
+  }
+]
