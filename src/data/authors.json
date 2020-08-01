@@ -6,32 +6,4 @@
     'Avatar': 'https://litres.ru/static/authors/100/00/06/56/00065628_100.jpg',
     'Info': 'российский писатель, работавший в жанре фантастики'
   },
-  {
-    'id': 2,
-    'Name': 'Андрей Круз2',
-    'Email': 'andrey@kruz.lib',
-    'Avatar': 'https://litres.ru/static/authors/100/00/06/56/00065628_100.jpg',
-    'Info': 'российский писатель, работавший в жанре фантастики'
-  },
-  {
-    'id': 3,
-    'Name': 'Андрей Круз3',
-    'Email': 'andrey@kruz.lib',
-    'Avatar': 'https://litres.ru/static/authors/100/00/06/56/00065628_100.jpg',
-    'Info': 'российский писатель, работавший в жанре фантастики'
-  },
-  {
-    'id': 4,
-    'Name': 'Андрей Круз4',
-    'Email': 'andrey@kruz.lib',
-    'Avatar': 'https://litres.ru/static/authors/100/00/06/56/00065628_100.jpg',
-    'Info': 'российский писатель, работавший в жанре фантастики'
-  },
-  {
-    'id': 5,
-    'Name': 'Андрей Круз5',
-    'Email': 'andrey@kruz.lib',
-    'Avatar': 'https://litres.ru/static/authors/100/00/06/56/00065628_100.jpg',
-    'Info': 'российский писатель, работавший в жанре фантастики'
-  }
 ]
