@@ -9,6 +9,8 @@ class SimilarBooks extends React.Component{
     this.state = {
       similarBooks: []
     };
+
+    this.updateSimilarBooks = this.updateSimilarBooks.bind(this);
   }
 
   updateSimilarBooks(similarBook){
@@ -19,13 +21,21 @@ class SimilarBooks extends React.Component{
     console.log(similarBook);
   }
 
+  handleHidden(event){
+    const target = event.target;
+    if(target.className === 'similar-book'){
+      console.log(target.id)
+      this.updateSimilarBooks([{id: target.id, visible: false}])
+    }
+  }
+
   render(){
     const { similarBooks } = this.props;
     this.state.similarBooks.length ||  this.updateSimilarBooks(similarBooks);
 
 
     return(
-      <div style={styles.similarBooks}>
+      <div style={styles.similarBooks} onClick={this.handleHidden}>
         {this.state.similarBooks.filter(book => book.visible).map(book =>
           <div key={book.id} id={`similar-book-${book.id}`}>
             <SimilarBookCard similarBook={book} {...this.props} updateSimilarBooks={this.updateSimilarBooks} />

@@ -24,7 +24,7 @@ class SimilarBookCard extends React.Component {
     return(
       <div style={styles.similarBook} hidden={!this.state.visible}>
         <div>
-          <img onClick={() => updateSimilarBooks([{id: id, visible: false}])} style={styles.cross} src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Fxemoji_u274C.svg/768px-Fxemoji_u274C.svg.png' />
+          <img className='similar-book' id={id} style={styles.cross} src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Fxemoji_u274C.svg/768px-Fxemoji_u274C.svg.png' />
         </div>
         <div>
           <img style={styles.cover} src={Cover} />
