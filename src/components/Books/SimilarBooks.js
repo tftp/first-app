@@ -7,37 +7,41 @@ class SimilarBooks extends React.Component{
     super(props);
 
     this.state = {
-      similarBooks: []
+      similarBooks: this.props.similarBooks
     };
-
+    this.countSimilarBooks = this.countSimilarBooks.bind(this);
     this.updateSimilarBooks = this.updateSimilarBooks.bind(this);
   }
 
-  updateSimilarBooks(similarBook){
-    this.setState({
-      similarBooks: similarBook
-    });
-    console.log(this.state);
-    console.log(similarBook);
-  }
-
-  handleHidden(event){
-    const target = event.target;
-    if(target.className === 'similar-book'){
-      console.log(target.id)
-      this.updateSimilarBooks([{id: target.id, visible: false}])
+  countSimilarBooks(){
+    const lengthVisibleState = this.state.similarBooks.filter(similar => similar.visible).length;
+    if (lengthVisibleState < 3){
+      const similar = this.state.similarBooks.find(similar => !similar.visible)
+      this.updateSimilarBooks({id: similar.id, visible: true})
     }
   }
+//  Если поставить вариант с async await то замечательно работает, пока не перезагрузишь страницу
+//  браузера, после перезагрузки выдает ошибку Uncaught ReferenceError: regeneratorRuntime is not defined
+//  Нашел решение для parsel: https://flaviocopes.com/parcel-regeneratorruntime-not-defined/
+
+  async updateSimilarBooks(similarBook){
+     await this.setState((state) => ({
+     similarBooks: state.similarBooks.filter(similar => similar.id != similarBook.id)
+   }));
+
+     await this.setState((state) => ({
+     similarBooks: [...state.similarBooks, similarBook]
+   }));
+   this.countSimilarBooks();
+ }
 
   render(){
     const { similarBooks } = this.props;
-    this.state.similarBooks.length ||  this.updateSimilarBooks(similarBooks);
-
 
     return(
-      <div style={styles.similarBooks} onClick={this.handleHidden}>
+      <div style={styles.similarBooks}>
         {this.state.similarBooks.filter(book => book.visible).map(book =>
-          <div key={book.id} id={`similar-book-${book.id}`}>
+          <div key={book.id} >
             <SimilarBookCard similarBook={book} {...this.props} updateSimilarBooks={this.updateSimilarBooks} />
           </div>
         )}
@@ -52,12 +56,4 @@ const styles = {
   similarBooks: {
     display: 'flex',
   },
-  similarBook: {
-    margin: '10px',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    font: 'normal 10pt sans-serif',
-  }
-
 }

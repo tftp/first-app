@@ -1,44 +1,29 @@
 import React from 'react';
 
-class SimilarBookCard extends React.Component {
-  constructor(props){
-    super(props);
-
-    this.state = { visible: true };
-  }
-
-  toggle(){
-      this.setState(({ visible }, props) => (
-        {visible:  !visible}
-      ));
-  }
-
-  hiddenBook(id){
-    document.querySelector(`#similar-book-${id}`).hidden = true;
-  }
-
-  render(){
-    const { similarBook, authors, books, updateSimilarBooks } = this.props;
-    const { id, authorId, Cover, Title } = books.find(book => book.id === similarBook.id);
-    const { Name } = authors.find(author => author.id === authorId);
-    return(
-      <div style={styles.similarBook} hidden={!this.state.visible}>
-        <div>
-          <img className='similar-book' id={id} style={styles.cross} src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Fxemoji_u274C.svg/768px-Fxemoji_u274C.svg.png' />
-        </div>
-        <div>
-          <img style={styles.cover} src={Cover} />
-        </div>
-        <div>
-          {Name}
-        </div>
-        <div>{Title}</div>
+function SimilarBookCard({ updateSimilarBooks, similarBook, authors, books }) {
+  const { id, authorId, Cover, Title } = books.find(book => book.id === similarBook.id);
+  const { Name } = authors.find(author => author.id === authorId);
+  return(
+    <div style={styles.similarBook}>
+      <div>
+        <img
+          onClick={() => updateSimilarBooks({id: id, visible: false})}
+          style={styles.cross}
+          src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Fxemoji_u274C.svg/768px-Fxemoji_u274C.svg.png'
+        />
       </div>
-    )
-  }
+      <div>
+        <img style={styles.cover} src={Cover} />
+      </div>
+      <div>
+        {Name}
+      </div>
+      <div>{Title}</div>
+    </div>
+  )
 }
 
-export default SimilarBookCard;
+export default React.memo(SimilarBookCard);
 
 const styles = {
   cover: {
