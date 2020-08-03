@@ -6,6 +6,7 @@ import SubscribeModal from './SubscribeModal'
 
 function BooksList({ authors, books }) {
   return (
+    // Если я уберу фрагмент, выдает ошибку [parcel]: @parcel/transformer-babel: Unexpected token, expected "," (11:12)
     <>
       {books.map(book => (
         <div key={book.id}>

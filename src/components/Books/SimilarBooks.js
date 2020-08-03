@@ -20,19 +20,17 @@ class SimilarBooks extends React.Component{
       this.updateSimilarBooks({id: similar.id, visible: true})
     }
   }
-//  Если поставить вариант с async await то замечательно работает, пока не перезагрузишь страницу
-//  браузера, после перезагрузки выдает ошибку Uncaught ReferenceError: regeneratorRuntime is not defined
-//  Нашел решение для parsel: https://flaviocopes.com/parcel-regeneratorruntime-not-defined/
 
-  async updateSimilarBooks(similarBook){
-     await this.setState((state) => ({
+  updateSimilarBooks(similarBook){
+     this.setState((state) => ({
      similarBooks: state.similarBooks.filter(similar => similar.id != similarBook.id)
    }));
 
-     await this.setState((state) => ({
+     this.setState((state) => ({
      similarBooks: [...state.similarBooks, similarBook]
-   }));
-   this.countSimilarBooks();
+   }),
+   () => {this.countSimilarBooks()}
+  );
  }
 
   render(){
