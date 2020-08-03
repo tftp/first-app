@@ -9,16 +9,7 @@ class SimilarBooks extends React.Component{
     this.state = {
       similarBooks: this.props.similarBooks
     };
-    this.countSimilarBooks = this.countSimilarBooks.bind(this);
     this.updateSimilarBooks = this.updateSimilarBooks.bind(this);
-  }
-
-  countSimilarBooks(){
-    const lengthVisibleState = this.state.similarBooks.filter(similar => similar.visible).length;
-    if (lengthVisibleState < 3){
-      const similar = this.state.similarBooks.find(similar => !similar.visible)
-      this.updateSimilarBooks({id: similar.id, visible: true})
-    }
   }
 
   updateSimilarBooks(similarBook){
@@ -28,9 +19,8 @@ class SimilarBooks extends React.Component{
 
      this.setState((state) => ({
      similarBooks: [...state.similarBooks, similarBook]
-   }),
-   () => {this.countSimilarBooks()}
-  );
+    })
+   );
  }
 
   render(){
@@ -38,7 +28,7 @@ class SimilarBooks extends React.Component{
 
     return(
       <div style={styles.similarBooks}>
-        {this.state.similarBooks.filter(book => book.visible).map(book =>
+        {this.state.similarBooks.slice(0,3).map(book =>
           <div key={book.id} >
             <SimilarBookCard similarBook={book} {...this.props} updateSimilarBooks={this.updateSimilarBooks} />
           </div>
