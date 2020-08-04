@@ -1,0 +1,18 @@
+[
+  {
+    'id': 1,
+    'visible': true,
+  },
+  {
+    'id': 2,
+    'visible': true,
+  },
+  {
+    'id': 3,
+    'visible': true,
+  },
+  {
+    'id': 4,
+    'visible': false,
+  },
+]

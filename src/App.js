@@ -1,6 +1,7 @@
 import React from 'react';
 
 import BooksList from './components/Books/BooksList';
+import SimilarBooks from './components/Books/SimilarBooks';
 import FeedbackForm from './static/FeedbackForm';
 import Header from './static/Header';
 
@@ -11,6 +12,8 @@ class App extends React.Component{
         <Header />
         <main style={style.main}>
           <BooksList {...this.props} />
+          Похожие книги:
+            <SimilarBooks {...this.props} />
         </main>
         <div style={style.feedback}>
           <FeedbackForm />
@@ -39,7 +42,7 @@ const style = {
     padding: '10px 10%',
   },
   feedback: {
-    position: 'absolute',
+    position: 'fixed',
     bottom: 0,
     right: 0,
     display: 'flex',
