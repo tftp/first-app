@@ -14,13 +14,9 @@ class SimilarBooks extends React.Component{
 
   updateSimilarBooks(similarBook){
      this.setState((state) => ({
-     similarBooks: state.similarBooks.filter(similar => similar.id != similarBook.id)
+     similarBooks: [...state.similarBooks.filter(similar => similar.id != similarBook.id), similarBook]
    }));
 
-     this.setState((state) => ({
-     similarBooks: [...state.similarBooks, similarBook]
-    })
-   );
  }
 
   render(){
