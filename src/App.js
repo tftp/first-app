@@ -1,19 +1,17 @@
 import React from 'react';
 
-import BooksList from './components/Books/BooksList';
-import SimilarBooks from './components/Books/SimilarBooks';
+import BookContainer from './components/Books/BookContainer';
 import FeedbackForm from './static/FeedbackForm';
 import Header from './static/Header';
 
 class App extends React.Component{
+
   render(){
     return (
       <>
         <Header />
         <main style={style.main}>
-          <BooksList {...this.props} />
-          Похожие книги:
-            <SimilarBooks {...this.props} />
+          <BookContainer {...this.props} />
         </main>
         <div style={style.feedback}>
           <FeedbackForm />
