@@ -1,6 +1,6 @@
 import React from 'react';
 
-import BookContainer from './components/Books/BookContainer';
+import BooksList from './components/Books/BooksList';
 import FeedbackForm from './static/FeedbackForm';
 import Header from './static/Header';
 
@@ -11,7 +11,7 @@ class App extends React.Component{
       <>
         <Header />
         <main style={style.main}>
-          <BookContainer {...this.props} />
+          <BooksList {...this.props} />
         </main>
         <div style={style.feedback}>
           <FeedbackForm />

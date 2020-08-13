@@ -1,8 +1,5 @@
 import React from 'react';
 
-import BooksList from './BooksList';
-import SimilarBooks from './SimilarBooks';
-
 import axios from 'axios';
 
 const API_TOKEN = 'keyXV8VsjAlAKfZA0';
@@ -15,7 +12,7 @@ const httpClient = axios.create({
   }
 });
 
-class BookContainer extends React.Component{
+const withBooks =  EnchancedComponent => class extends React.Component{
   constructor(props){
     super(props);
 
@@ -31,13 +28,7 @@ class BookContainer extends React.Component{
   render(){
     const { books } = this.state;
     return (
-        books ? (
-          <>
-            <BooksList {...this.props} books={books} />
-            Похожие книги:
-            <SimilarBooks {...this.props} books={books} />
-          </>
-        ) : (<div>Loading...</div>)
+            <EnchancedComponent isLoading={!books} {...this.props} books={books} />
     );
   }
 
@@ -71,4 +62,4 @@ class BookContainer extends React.Component{
   }
 }
 
-export default BookContainer;
+export default withBooks;
